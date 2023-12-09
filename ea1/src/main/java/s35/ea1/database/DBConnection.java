@@ -25,7 +25,7 @@ public class DBConnection {
         this.password = dotenv.get("DATABASE_PASSWORD");
     }
 
-    public List<Map<String, Object>> executeQueryAndReturnResults(String sqlQuery) {
+    public List<Map<String, Object>> executeSelectQuery(String sqlQuery) {
         List<Map<String, Object>> results = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(jdbcUrl, user, password); Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(sqlQuery)) {
 
@@ -47,7 +47,7 @@ public class DBConnection {
         return results;
     }
 
-    public boolean executeQuery(String sqlQuery) {
+    public boolean executeUpdateQuery(String sqlQuery) {
         try (Connection connection = DriverManager.getConnection(jdbcUrl, user, password); Statement statement = connection.createStatement()) {
 
             statement.executeUpdate(sqlQuery);
