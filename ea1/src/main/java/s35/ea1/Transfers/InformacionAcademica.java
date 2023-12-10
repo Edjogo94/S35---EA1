@@ -3,13 +3,24 @@ package s35.ea1.Transfers;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InformacionAcademica{
+public class InformacionAcademica {
 
     private int id;
     private int funcionarioId;
     private String universidad;
     private String nivelEstudio;
     private String tituloEstudio;
+
+    public InformacionAcademica(int id, int funcionarioId, String universidad, String nivelEstudio, String tituloEstudio) {
+        this.id = id;
+        this.funcionarioId = funcionarioId;
+        this.universidad = universidad;
+        this.nivelEstudio = nivelEstudio;
+        this.tituloEstudio = tituloEstudio;
+    }
+
+    public InformacionAcademica() {
+    }
 
     public static InformacionAcademica fromMap(Map<String, Object> data) {
         InformacionAcademica informacionAcademica = new InformacionAcademica();

@@ -5,6 +5,7 @@ import s35.ea1.Implementations.FuncionarioImpl;
 import s35.ea1.database.DBConnection;
 
 import java.util.List;
+import java.util.Map;
 
 public class FuncionarioDAO {
 
@@ -21,16 +22,20 @@ public class FuncionarioDAO {
     public List<Funcionario> findAll() {
         return funcionarioImpl.findAll();
     }
-
-    public void save(Funcionario funcionario) {
-        funcionarioImpl.save(funcionario);
+    
+    public List<Map<String, Object>> findAllMap() {
+        return funcionarioImpl.findAllMap();
     }
 
-    public void update(Funcionario funcionario) {
-        funcionarioImpl.update(funcionario);
+    public boolean save(Funcionario funcionario) {
+        return funcionarioImpl.save(funcionario);
     }
 
-    public void delete(int id) {
-        funcionarioImpl.delete(id);
+    public boolean update(Funcionario funcionario) {
+        return funcionarioImpl.update(funcionario);
+    }
+
+    public boolean delete(int id) {
+        return funcionarioImpl.delete(id);
     }
 }

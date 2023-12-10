@@ -5,6 +5,7 @@ import s35.ea1.Implementations.GrupoFamiliarImpl;
 import s35.ea1.database.DBConnection;
 
 import java.util.List;
+import java.util.Map;
 
 public class GrupoFamiliarDAO {
 
@@ -17,20 +18,24 @@ public class GrupoFamiliarDAO {
     public GrupoFamiliar findById(int id) {
         return grupoFamiliarImpl.findById(id);
     }
+    
+    public List<Map<String, Object>> findAllMap() {
+        return grupoFamiliarImpl.findAllMap();
+    }
 
     public List<GrupoFamiliar> findAll() {
         return grupoFamiliarImpl.findAll();
     }
 
-    public void save(GrupoFamiliar grupoFamiliar) {
-        grupoFamiliarImpl.save(grupoFamiliar);
+    public boolean save(GrupoFamiliar grupoFamiliar) {
+        return grupoFamiliarImpl.save(grupoFamiliar);
     }
 
-    public void update(GrupoFamiliar grupoFamiliar) {
-        grupoFamiliarImpl.update(grupoFamiliar);
+    public boolean update(GrupoFamiliar grupoFamiliar) {
+        return grupoFamiliarImpl.update(grupoFamiliar);
     }
 
-    public void delete(int id) {
-        grupoFamiliarImpl.delete(id);
+    public boolean delete(int id) {
+        return grupoFamiliarImpl.delete(id);
     }
 }

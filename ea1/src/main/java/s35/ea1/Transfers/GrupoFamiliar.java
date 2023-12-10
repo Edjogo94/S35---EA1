@@ -3,13 +3,24 @@ package s35.ea1.Transfers;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GrupoFamiliar{
+public class GrupoFamiliar {
 
     private int id;
     private int funcionarioId;
     private String miembroNombre;
     private String miembroApellido;
     private String miembroRol;
+
+    public GrupoFamiliar(int id, int funcionarioId, String miembroNombre, String miembroApellido, String miembroRol) {
+        this.id = id;
+        this.funcionarioId = funcionarioId;
+        this.miembroNombre = miembroNombre;
+        this.miembroApellido = miembroApellido;
+        this.miembroRol = miembroRol;
+    }
+
+    public GrupoFamiliar() {
+    }
 
     public static GrupoFamiliar fromMap(Map<String, Object> data) {
         GrupoFamiliar grupoFamiliar = new GrupoFamiliar();

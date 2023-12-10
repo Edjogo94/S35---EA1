@@ -33,26 +33,33 @@ public class FuncionarioImpl {
         return entities;
     }
 
-    public void save(Funcionario entity) {
+    public List<Map<String, Object>> findAllMap() {
+        String sqlQuery = "SELECT * FROM Funcionarios";
+        List<Map<String, Object>> results = dbConnection.executeSelectQuery(sqlQuery);
+        return results;
+    }
+
+    public boolean save(Funcionario entity) {
         Map<String, Object> entityMap = entity.toMap();
+        entityMap.remove("id");
         String columns = String.join(", ", entityMap.keySet());
         String values = entityMap.values().stream().map(value -> "'" + value + "'").reduce((v1, v2) -> v1 + ", " + v2).orElse("");
         String sqlQuery = "INSERT INTO Funcionarios (" + columns + ") VALUES (" + values + ")";
-        dbConnection.executeUpdateQuery(sqlQuery);
+        return dbConnection.executeUpdateQuery(sqlQuery);
     }
 
-    public void update(Funcionario entity) {
+    public boolean update(Funcionario entity) {
         Map<String, Object> entityMap = entity.toMap();
         String updateClause = entityMap.entrySet().stream()
                 .map(entry -> entry.getKey() + " = '" + entry.getValue() + "'")
                 .reduce((e1, e2) -> e1 + ", " + e2)
                 .orElse("");
         String sqlQuery = "UPDATE Funcionarios SET " + updateClause + " WHERE id = " + entity.getId();
-        dbConnection.executeUpdateQuery(sqlQuery);
+        return dbConnection.executeUpdateQuery(sqlQuery);
     }
 
-    public void delete(int id) {
+    public boolean delete(int id) {
         String sqlQuery = "DELETE FROM Funcionarios WHERE id = " + id;
-        dbConnection.executeUpdateQuery(sqlQuery);
+        return dbConnection.executeUpdateQuery(sqlQuery);
     }
 }

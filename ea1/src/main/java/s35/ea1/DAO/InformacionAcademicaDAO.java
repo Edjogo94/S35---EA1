@@ -5,6 +5,7 @@ import s35.ea1.Implementations.InformacionAcademicaImpl;
 import s35.ea1.database.DBConnection;
 
 import java.util.List;
+import java.util.Map;
 
 public class InformacionAcademicaDAO {
 
@@ -21,16 +22,20 @@ public class InformacionAcademicaDAO {
     public List<InformacionAcademica> findAll() {
         return informacionAcademicaImpl.findAll();
     }
-
-    public void save(InformacionAcademica informacionAcademica) {
-        informacionAcademicaImpl.save(informacionAcademica);
+    
+    public List<Map<String, Object>> findAllMap() {
+        return informacionAcademicaImpl.findAllMap();
     }
 
-    public void update(InformacionAcademica informacionAcademica) {
-        informacionAcademicaImpl.update(informacionAcademica);
+    public boolean save(InformacionAcademica informacionAcademica) {
+        return informacionAcademicaImpl.save(informacionAcademica);
     }
 
-    public void delete(int id) {
-        informacionAcademicaImpl.delete(id);
+    public boolean update(InformacionAcademica informacionAcademica) {
+        return informacionAcademicaImpl.update(informacionAcademica);
+    }
+
+    public boolean delete(int id) {
+        return informacionAcademicaImpl.delete(id);
     }
 }

@@ -17,6 +17,22 @@ public class Funcionario {
     private String telefono;
     private Date fechaNacimiento;
 
+    public Funcionario(int id, String tipoIdentificacion, String numeroIdentificacion, String nombres, String apellidos, String estadoCivil, String sexo, String direccion, String telefono, Date fechaNacimiento) {
+        this.id = id;
+        this.tipoIdentificacion = tipoIdentificacion;
+        this.numeroIdentificacion = numeroIdentificacion;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.estadoCivil = estadoCivil;
+        this.sexo = sexo;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Funcionario() {
+    }
+
     public static Funcionario fromMap(Map<String, Object> data) {
         Funcionario funcionario = new Funcionario();
         funcionario.setId((int) data.get("id"));
